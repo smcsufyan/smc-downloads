@@ -1,12 +1,272 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SMC Indie - Mannar Khaja Download</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;600&family=Playfair+Display:ital,wght@1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --brand-orange: #f97316;
+        }
+
+        body {
+            background-color: #050505;
+            color: #E5E7EB;
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .ambient-glow {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+            filter: blur(120px);
+            background: radial-gradient(circle, rgba(249, 115, 22, 0.06) 0%, rgba(0, 0, 0, 0) 70%);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+        }
+
+        .glow-btn {
+            background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            box-shadow: 0 0 20px rgba(249, 115, 22, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glow-btn:hover {
+            box-shadow: 0 0 40px rgba(249, 115, 22, 0.5);
+            transform: translateY(-3px) scale(1.02);
+        }
+
+        .glow-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        .artwork-shadow {
+            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.9);
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+        }
+
+        #particles-container {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 1.5px;
+            height: 1.5px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            animation: float linear infinite;
+        }
+
+        @keyframes float {
+            from { transform: translateY(110vh); opacity: 0; }
+            30% { opacity: 0.4; }
+            70% { opacity: 0.4; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        ::-webkit-scrollbar { width: 4px; }
+        ::-webkit-scrollbar-track { background: #000; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div id="particles-container"></div>
+
+    <div class="relative min-h-screen flex flex-col justify-between p-6 md:p-12 lg:p-16 overflow-hidden">
+        <div class="ambient-glow -top-64 -left-64"></div>
+        <div class="ambient-glow -bottom-64 -right-64"></div>
+
+        <!-- Header -->
+        <header class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8 reveal active">
+            <div class="flex flex-col items-center md:items-start">
+                <span class="text-xs font-bold tracking-[0.5em] text-orange-500 uppercase">SMC Indie</span>
+                <span class="text-[10px] text-zinc-500 tracking-[0.3em] mt-1 uppercase italic font-display">Premium Release Portal</span>
+            </div>
+            <div class="glass px-8 py-3 flex items-center gap-4">
+                <div class="w-2 h-2 rounded-full bg-orange-500 animate-pulse shadow-[0_0_10px_#f97316]"></div>
+                <span class="text-[10px] font-bold tracking-[0.2em] uppercase text-zinc-300">24-bit WAV / Studio Master Quality</span>
+            </div>
+        </header>
+
+        <!-- Main Section -->
+        <main class="relative z-10 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-16 items-center py-16">
+            <div class="lg:col-span-5 h-full flex items-center justify-center">
+                <div class="relative aspect-square w-full max-w-md rounded-3xl overflow-hidden artwork-shadow border border-zinc-800/30 group reveal active" style="transition-delay: 0.2s">
+                    <img src="https://lh3.googleusercontent.com/d/1lvpxzj_2YM2I-JFQoWy7iITF82f_ZjLE" alt="Mannar Khaja Artwork" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-[2000ms] ease-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-8 left-8">
+                        <p class="text-[10px] tracking-[0.4em] text-zinc-400 uppercase font-mono bg-black/40 backdrop-blur-md px-3 py-1 rounded-full">Single Release 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="lg:col-span-7 lg:pl-16 space-y-16">
+                <div class="space-y-6 reveal active" style="transition-delay: 0.4s">
+                    <h1 class="text-7xl md:text-8xl lg:text-9xl font-thin tracking-tighter text-white leading-none">Mannar Khaja</h1>
+                    <p class="text-lg md:text-xl font-light text-zinc-400 tracking-[0.1em] border-l-2 border-orange-500 pl-6">
+                        From SMC Indie • Official Studio WAV Download
+                    </p>
+                </div>
+
+                <div class="glass p-10 md:p-12 max-w-2xl flex flex-col gap-10 reveal active" style="transition-delay: 0.6s">
+                    <p class="text-base md:text-lg text-zinc-400 leading-relaxed italic font-display">
+                        "Mannar Khaja is a cinematic independent music release crafted with immersive sound design, emotional depth, and modern production aesthetics by SMC Indie."
+                    </p>
+                    <button id="download-btn" class="glow-btn w-full py-6 rounded-2xl text-xs font-bold tracking-[0.4em] text-white uppercase flex items-center justify-center gap-4 group">
+                        <span>DOWNLOAD WAV</span>
+                        <i data-lucide="download" class="w-5 h-5 group-hover:translate-y-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="relative z-10 w-full pt-12 border-t border-zinc-900/50 grid grid-cols-1 md:grid-cols-4 gap-12 reveal active" style="transition-delay: 0.8s">
+            <div class="md:col-span-3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-10">
+                <div class="space-y-2">
+                    <p class="text-[9px] uppercase tracking-[0.3em] text-orange-500 font-black">Lyrics</p>
+                    <p class="text-xs text-white font-medium">Paat Masthan</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-600 font-black">Singer</p>
+                    <p class="text-xs text-white font-medium">Salman Kizhisseri</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-600 font-black">Music Production</p>
+                    <p class="text-xs text-white font-medium">Sufiyan Kizhisseri</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-600 font-black">Mix & Master</p>
+                    <p class="text-xs text-white font-medium">Azim Roshan</p>
+                </div>
+                <div class="space-y-2">
+                    <p class="text-[9px] uppercase tracking-[0.3em] text-zinc-600 font-black">Artwork</p>
+                    <p class="text-xs text-white font-medium">Muhammed Sahl</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-end items-center md:items-end text-center md:text-right">
+                <p class="text-[10px] text-zinc-700 tracking-[0.4em] font-bold uppercase">
+                    © 2026 SMC INDIE. ALL RIGHTS RESERVED.
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Particles Effect
+        function createParticles() {
+            const container = document.getElementById('particles-container');
+            const particleCount = 60;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                const size = Math.random() * 2 + 0.5;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                particle.style.left = `${Math.random() * 100}%`;
+                
+                const duration = Math.random() * 15 + 15;
+                const delay = Math.random() * 20;
+                particle.style.animationDuration = `${duration}s`;
+                particle.style.animationDelay = `-${delay}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        createParticles();
+
+        // Download Logic
+        const btn = document.getElementById('download-btn');
+        btn.addEventListener('click', function() {
+            const originalContent = btn.innerHTML;
+            btn.style.pointerEvents = 'none';
+            btn.style.opacity = '0.8';
+            btn.innerHTML = `
+                <svg class="animate-spin h-5 w-5 text-white" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                <span>PREPARING STUDIO MASTER...</span>
+            `;
+
+            setTimeout(() => {
+                const link = document.createElement('a');
+                link.href = 'https://drive.google.com/uc?export=download&id=1tRS_x_5B7qfc5eV5rCvxuDpsVWXibXdt';
+                link.setAttribute('download', 'Mannar_Khaja_SMC_Indie_Studio_Master.wav');
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                btn.innerHTML = `
+                    <i data-lucide="check-circle" class="w-5 h-5"></i>
+                    <span>DOWNLOAD STARTED</span>
+                `;
+                lucide.createIcons();
+
+                setTimeout(() => {
+                    btn.innerHTML = originalContent;
+                    btn.style.pointerEvents = 'auto';
+                    btn.style.opacity = '1';
+                    lucide.createIcons();
+                }, 4000);
+            }, 2000);
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
 </html>
+
